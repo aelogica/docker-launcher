@@ -39,3 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'rails_admin', '~> 0.6'
+
+group :development, :test do
+  gem 'pry'
+end
