@@ -43,3 +43,5 @@ gem 'rails_admin', '~> 0.6'
 group :development, :test do
   gem 'pry'
 end
+
+gem 'docker-api'

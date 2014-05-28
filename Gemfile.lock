@@ -27,6 +27,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    archive-tar-minitar (0.5.2)
     arel (5.0.1.20140414130214)
     builder (3.2.2)
     coderay (1.1.0)
@@ -37,7 +38,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    docker-api (1.10.11)
+      archive-tar-minitar
+      excon (>= 0.28)
+      json
     erubis (2.7.0)
+    excon (0.33.0)
     execjs (2.0.2)
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
@@ -153,6 +159,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  docker-api
   jbuilder (~> 2.0)
   jquery-rails
   pry
