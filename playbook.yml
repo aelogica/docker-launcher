@@ -20,6 +20,7 @@
         - tree
         - screen
         - redis-server
+        - nodejs
 
     - name: ensure ntpd is at the latest version
       apt: pkg=ntp state=latest
