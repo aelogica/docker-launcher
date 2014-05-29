@@ -1,4 +1,13 @@
 .row
   .small-12.column
-    %ul
-      = render @projects
+    %h2 Create an app
+    = form_tag instances_path, method: :post do
+      .small-8
+        %ol
+          %li
+            = label_tag :project_id, 'Choose an app type'
+            = select_tag :project_id, options_from_collection_for_select(@projects, 'id', 'title')
+          %li
+            = label_tag :email, 'Enter your email address'
+            = text_field_tag :email, '', placeholder: 'test@example.com'
+        = submit_tag 'Launch the app!', class: 'button'
