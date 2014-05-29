@@ -47,3 +47,7 @@ end
 gem 'docker-api'
 gem 'resque'
 gem 'figaro'
+
+gem 'haml'
+gem 'foundation-rails'
+gem 'modernizr-rails'
