@@ -19,5 +19,18 @@ module Launcher
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.raise_delivery_errors = false
+    config.action_mailer.default_options = { from: "no-reply@aelogica.com" }
+    config.action_mailer.smtp_settings = {
+      address: 'smtp.mandrillapp.com',
+      port: 587,
+      domain: 'aelogica.com',
+      user_name: 'aelogica',
+      password: Figaro.env.mandrill_key,
+      authentication: 'plain',
+      enable_starttls_auto: true
+    }
   end
 end
