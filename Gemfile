@@ -45,7 +45,7 @@ group :development, :test do
 end
 
 gem 'docker-api'
-gem 'resque'
+gem 'resque', require: 'resque/server'
 gem 'figaro'
 
 gem 'haml'
