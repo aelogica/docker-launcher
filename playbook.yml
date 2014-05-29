@@ -1,0 +1,37 @@
+---
+- hosts: all
+
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: update apt
+      apt: update_cache=yes
+      sudo: True
+
+    - name: install packages
+      apt: name={{ item }} state=latest
+      with_items:
+        - git
+        - build-essential
+        - curl
+        - libcurl4-openssl-dev
+        - vim
+        - tree
+        - screen
+
+    - name: ensure ntpd is at the latest version
+      apt: pkg=ntp state=latest
+      notify:
+        - restart ntpd
+
+    - name: install RVM
+      shell: \curl -L https://get.rvm.io | bash -s stable --autolibs=3 creates=/usr/local/rvm
+
+    - name: install Ruby
+      shell: /usr/local/rvm/bin/rvm install --default {{ ruby }} creates=/usr/local/rvm/rubies/{{ ruby }}
+
+
+  handlers:
+    - name: restart ntpd
+      service: name=ntp state=restarted
