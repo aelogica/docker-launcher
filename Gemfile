@@ -45,3 +45,5 @@ group :development, :test do
 end
 
 gem 'docker-api'
+gem 'resque'
+gem 'figaro'
