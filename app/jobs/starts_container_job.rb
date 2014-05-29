@@ -12,7 +12,8 @@ class StartsContainerJob
   end
 
   private
-    def get_ports_from(container)
+
+    def self.get_ports_from(container)
       ports = container.json["NetworkSettings"]["Ports"]
       @ssh = ports["22/tcp"].first["HostPort"]
       @http = ports["3000/tcp"].first["HostPort"]
