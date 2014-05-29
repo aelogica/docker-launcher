@@ -19,6 +19,7 @@
         - vim
         - tree
         - screen
+        - redis-server
 
     - name: ensure ntpd is at the latest version
       apt: pkg=ntp state=latest
