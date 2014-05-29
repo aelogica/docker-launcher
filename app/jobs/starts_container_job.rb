@@ -1,7 +1,7 @@
 class StartsContainerJob
-  def self.perform(project_id, email)
-    @queue = :high
+  @queue = :high
 
+  def self.perform(project_id, email)
     project = Project.find(project_id)
     container = Docker::Container.create({
       "Image" => "quay.io/ae_nestor/#{project.project_key}:latest"
